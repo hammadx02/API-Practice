@@ -1,43 +1,37 @@
-/// userId : 1
-/// id : 1
-/// title : "sunt aut facere repellat provident occaecati excepturi optio reprehenderit"
-/// body : "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+// To parse this JSON data, do
+//
+//     final postsModel = postsModelFromJson(jsonString);
+
+import 'dart:convert';
+
+List<PostsModel> postsModelFromJson(String str) => List<PostsModel>.from(json.decode(str).map((x) => PostsModel.fromJson(x)));
+
+String postsModelToJson(List<PostsModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class PostsModel {
-  PostsModel({
-      int? userId, 
-      int? id, 
-      String? title, 
-      String? body,}){
-    _userId = userId;
-    _id = id;
-    _title = title;
-    _body = body;
-}
+    int? userId;
+    int? id;
+    String? title;
+    String? body;
 
-  PostsModel.fromJson(dynamic json) {
-    _userId = json['userId'];
-    _id = json['id'];
-    _title = json['title'];
-    _body = json['body'];
-  }
-  int? _userId;
-  int? _id;
-  String? _title;
-  String? _body;
+    PostsModel({
+        this.userId,
+        this.id,
+        this.title,
+        this.body,
+    });
 
-  int? get userId => _userId;
-  int? get id => _id;
-  String? get title => _title;
-  String? get body => _body;
+    factory PostsModel.fromJson(Map<String, dynamic> json) => PostsModel(
+        userId: json["userId"],
+        id: json["id"],
+        title: json["title"],
+        body: json["body"],
+    );
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['userId'] = _userId;
-    map['id'] = _id;
-    map['title'] = _title;
-    map['body'] = _body;
-    return map;
-  }
-
+    Map<String, dynamic> toJson() => {
+        "userId": userId,
+        "id": id,
+        "title": title,
+        "body": body,
+    };
 }
