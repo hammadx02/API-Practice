@@ -59,8 +59,8 @@ class _ExampleFiveState extends State<ExampleFive> {
                             ),
                           ),
                           Container(
-                            height: MediaQuery.of(context).size.height * 3,
-                            width: MediaQuery.of(context).size.width * 1,
+                            height: MediaQuery.of(context).size.height * .3,
+                            width: MediaQuery.of(context).size.width * .1,
                             child: ListView.builder(
                               itemCount:
                                   snapshot.data!.data![index].images!.length,
