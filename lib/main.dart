@@ -1,6 +1,5 @@
+import 'package:api_practice/screens/getApi/dropdown_button_api.dart';
 import 'package:flutter/material.dart';
-
-import 'screens/postApi/upload_image.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: UploadImageScreen(),
+      home: DropDownApi(),
     );
   }
 }
